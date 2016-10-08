@@ -20,8 +20,11 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.set("views","./app/views");
+app.set("view engine", "ejs");
+
 app.use("/", function(req,res){
-    res.render("./app/views/index.html");
+    res.render('index');
 });
 
 app.listen(port);
