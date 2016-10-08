@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use("/", function(req,res){
+    res.render("./app/views/index.html");
+});
+
 app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
