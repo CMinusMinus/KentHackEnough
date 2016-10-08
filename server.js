@@ -12,7 +12,7 @@ var db = require('./config/db');
 
 mongoose.connect(db.url);
 
-var port = 3000;
+var port = 80;
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -20,14 +20,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.set("views","./app/views");
+app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
-/*app.use("/", function(req,res){
+app.use("/", function(req,res){
     res.render('index');
-});*/
-
-require("./app/routes/navigation")(app, mongoose);
+});
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
