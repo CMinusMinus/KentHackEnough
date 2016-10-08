@@ -1,9 +1,15 @@
-var appName = 'mean';
+var appName = 'word';
 var app = angular.module(appName, ["ngRoute"]);
 
 app.controller("lobbyCtrl", function(){
 
 });
+
+app.directive("")
+/*app.config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('!');
+    }
+]);
 
 app.config(['$routeProvider',
     function($routeProvider) {
@@ -24,7 +30,7 @@ app.config(['$routeProvider',
             redirectTo: '/'
         });
     }
-]);
+]);*/
 
 angular.element(document).ready(function() {
     angular.bootstrap(document, [appName]);
