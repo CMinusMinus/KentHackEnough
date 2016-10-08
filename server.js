@@ -12,7 +12,7 @@ path = require('path');
 
 var db = require('./config/db');
 
-mongoose.connect(db.url);
+//mongoose.connect(db.url);
 
 var port = 80;
 
