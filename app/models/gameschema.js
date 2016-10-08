@@ -1,12 +1,11 @@
-var mongoose = require('mongoose'),
+var mongoose = require('playerschema'),
     Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-    name: String,
-    email: String,
-    username: String,
-    password: String,
+var GameSchema = new Schema({
+    accessCode: Number,
+    wordsPlayed: Array,
+    players: Array,
+    turnIndex: Number,
 });
 
-mongoose.model('User', UserSchema);
- 
+mongoose.model('Game', GameSchema);
