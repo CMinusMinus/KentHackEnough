@@ -1,6 +1,6 @@
-var port = 27017;
+//var port = 27017;
 
 module.exports = {
     db: 'mongodb://localhost/',
-    port: port
+    port: 27017
 };

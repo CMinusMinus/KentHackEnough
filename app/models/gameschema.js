@@ -1,5 +1,5 @@
-var mongoose = require('playerschema'),
-    Schema = mongoose.Schema;
+/*var mongoose = require('playerschema'),
+    GameSchema = mongoose.Schema;
 
 var GameSchema = new Schema({
     accessCode: Number,
