@@ -9,10 +9,18 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>Lobby</p>
+                <ul>
+                    <% for(var i=0; i<players.length; i++) {%>
+	                    <li><%= players[i] %></li>
+                    <% } %>
+</ul>
                 <a class="btn btn-default" href="/">
                     <span style="font-size:larger;">Start</span></a>
                 <a class="btn btn-default" href="/game"><span style="font-size:larger;">Back</span></a>
             </div>
         </div>
+        <script>
+
+        </script>
     </body>
 </html>
