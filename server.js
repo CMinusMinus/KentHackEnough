@@ -23,9 +23,7 @@ app.use(bodyParser.urlencoded({
 app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
-app.use("/", function(req,res){
-    res.render('index');
-});
+require("./app/routes/navigation")(app,mongoose);
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
