@@ -33,5 +33,4 @@ app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
 
-module.exports = app;
 console.log(process.env.NODE_ENV + ' server running at http://localhost:' + port);
