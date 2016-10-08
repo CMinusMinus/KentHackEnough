@@ -6,7 +6,6 @@ methodOverride = require('method-override'),
 morgan = require('morgan'),
 serveStatic = require('serve-static');
 path = require('path');
-session = require('cookie-session');
 
 
 var db = require('./config/db');
