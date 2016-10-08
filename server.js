@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 var express = require('express'),
 app = express(),
 mongoose = require('mongoose'),
@@ -23,8 +25,11 @@ app.use(bodyParser.urlencoded({
 app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
+<<<<<<< HEAD
 require("./app/routes/navigation")(app,mongoose);
 
+=======
+>>>>>>> mongoose
 app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
