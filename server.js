@@ -1,5 +1,3 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
 var express = require('express'),
 app = express(),
 mongoose = require('mongoose'),
@@ -30,6 +28,3 @@ require("./app/routes/navigation")(app,mongoose);
 app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
-
-module.exports = app;
-console.log(process.env.NODE_ENV + ' server running at http://localhost:' + port);
