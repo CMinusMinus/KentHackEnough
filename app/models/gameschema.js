@@ -8,3 +8,7 @@ var GameSchema = mongoose.Schema({
     players: Array,
     turnIndex: Number
 });
+
+var Game = mongoose.model('Game', GameSchema);
+
+module.exports = Game;
