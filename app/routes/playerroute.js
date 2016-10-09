@@ -20,6 +20,7 @@ module.exports = function(app, mongoose) {
             return;
         }
         else
+
             res.redirect("/lobby");
         });
     });
