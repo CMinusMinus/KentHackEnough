@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var PlayerSchema = require('../models/PlayerSchema');
+var PlayerSchema = require('../models/Player');
 var Player = mongoose.model('Player', PlayerSchema);
 
 exports.create = function(req, res, next) {
