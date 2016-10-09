@@ -1,4 +1,4 @@
-var Player = require('mongoose').model('PlayerSchema');
+var Player = require('mongoose').model('Player');
 
 exports.create = function(req, res, next) {
     var player = new Player(req.body);
