@@ -21,7 +21,7 @@
                 $scope.joinGame = function() {
                     $http({
                         method: "POST",
-                        url: "/game/join",
+                        url: "/"+ $scope.accessCode +"/game/join",
                         header: {"Content-Type": "application/json"},
                         data: {
                             "accessCode": $scope.accessCode,
