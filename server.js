@@ -10,7 +10,7 @@ path = require('path');
 
 var db = require('./config/db');
 
-//mongoose.connect(db.url);
+mongoose.connect(db.url);
 
 var port = 80;
 
@@ -24,7 +24,9 @@ app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
 require("./app/routes/navigation")(app,mongoose);
-require("./app/routes/playerroute")(app);
+require("./app/routes/playerroute")(app, mongoose);
+require("./app/routes/gameroute")(app);
+
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
