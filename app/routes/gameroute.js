@@ -19,6 +19,7 @@ module.exports = function(app, mongoose) {
           turnIndex: turnIndex,
           accessCode: accessCode
         });
+        console.log(newGame);
 
         newGame.save(function(err) {
         if (err) {
