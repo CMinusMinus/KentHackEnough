@@ -13,15 +13,15 @@ module.exports = function(app, mongoose) {
       };
       players.push(newPlayer);
 
-      var newGame = new Game({
+      var testGame = new Game({
           players: players,
           words: words,
           turnIndex: turnIndex,
           accessCode: accessCode
         });
-        console.log(newGame);
+        console.log(testGame);
 
-        newGame.save(function(err) {
+        testGame.save(function(err) {
         if (err) {
             console.log(err);
             return;
