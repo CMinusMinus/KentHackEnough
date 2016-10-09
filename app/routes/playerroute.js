@@ -1,4 +1,4 @@
-var players = require('../app/controllers/playercontroller');
+var players = require('../controllers/playercontroller');
 
 module.exports = function(app, mongoose) {
     var Player = mongoose.model('Player', require('../models/playerschema.js'))
