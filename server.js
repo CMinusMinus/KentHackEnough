@@ -27,6 +27,11 @@ require("./app/routes/navigation")(app,mongoose);
 require("./app/routes/playerroute")(app);
 require("./app/routes/gameroute")(app);
 
+app.post("/posting", function(req, res){
+   console.log(req);
+    res.redirect("/");
+});
+
 app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
