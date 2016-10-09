@@ -1,6 +1,8 @@
-var Game = require('../models/Game')
+var Game = require('../models/gameschema.js');
+var GameRoute = require('gameroute');
 
-module.exports = function(app) {
+
+module.exports = function(app,mongoose) {
   // Need word checker route that checks the word given then routes to either
   // good or bad route.
 
@@ -11,7 +13,15 @@ module.exports = function(app) {
 
   // add word
   // throwing shit at the wall here
-  app.post('/game/words',req.body.text);
-  
+  app.post('/game/words',function(req,res){
+    var query = Game.where({accessCode: req.body.accessCode})
+    query.findOne(function(err,Game) {
+        if(err) return next(err);
+        if(Game) {
+          Game.words.push(req.body.word);
+        }
+    });
+  });
+
 
 }
