@@ -8,4 +8,4 @@ var GameSchema = new Schema({
     turnIndex: Number,
 });
 
-mongoose.model('Game', GameSchema);
+mongoose.model('Game', Schema);
