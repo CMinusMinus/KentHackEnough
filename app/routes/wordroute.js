@@ -11,6 +11,7 @@ module.exports = function(app) {
 
   // add word
   // throwing shit at the wall here
-  app.post('loc',$word);
+  app.post('/game/words',req.body.text);
+  
 
 }
