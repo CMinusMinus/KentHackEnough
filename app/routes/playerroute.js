@@ -3,10 +3,10 @@ var players = require('../controllers/playercontroller');
 module.exports = function(app, mongoose) {
     var Player = mongoose.model('Player', require('../models/playerschema.js'))
     app.post('/player/create', function (req, res) {
-        var name = req.body.name;
+        var name1 = req.body.name;
 
         var newPlayer = new Player({
-            name: name,
+            name: name1,
             canPlay: true,
             isTurn: false,
             gamesWon: 0
