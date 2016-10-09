@@ -24,6 +24,7 @@ app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
 require("./app/routes/navigation")(app,mongoose);
+requier("./app/routes/playerroute")(app);
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
