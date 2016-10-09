@@ -1,4 +1,4 @@
-var game = require('../app/controllers/gamecontroller');
+var game = require('../controllers/gamecontroller');
 
 module.exports = function(app) {
     app.route('/game').post(game.create);
