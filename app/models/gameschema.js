@@ -1,4 +1,4 @@
-/*var mongoose = require('playerschema'),
+var mongoose = require('playerschema'),
     GameSchema = mongoose.Schema;
 
 var GameSchema = new Schema({
