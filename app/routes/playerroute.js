@@ -13,7 +13,7 @@ module.exports = function(app, mongoose) {
             isTurn: false,
             gamesWon: 0
         });
-        console.log(newPlayer.name);
+        console.log(newPlayer);
 
         newPlayer.save(function(err) {
         if (err) {
