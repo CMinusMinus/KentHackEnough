@@ -21,9 +21,4 @@ module.exports = function(app, mongoose) {
             res.redirect("/lobby");
         });
     });
-
-  /*app.get('/task/create', function (req, res) {
-    res.redirect();
-  });*/
-
 };
