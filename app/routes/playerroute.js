@@ -4,7 +4,7 @@ module.exports = function(app, mongoose) {
     app.post('/player/create', function (req, res) {
         var name = req.body.name;
 
-        var newTask = new Player({
+        var newPlayer = new Player({
             name: name,
             canPlay: true,
             isTurn: false,
