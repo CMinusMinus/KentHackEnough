@@ -1,4 +1,3 @@
-var mongoose = require('mongoose');
 module.exports = function(app, mongoose) {
     var Game = mongoose.model('Game', require('../models/gameschema'));
     app.post('/game/create', function (req, res) {
