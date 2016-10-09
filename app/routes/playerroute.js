@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 var players = require('../app/controllers/playercontroller');
-
-module.exports = function(app) {
-    app.route('/players').post(player.create);
-=======
 
 module.exports = function(app, mongoose) {
     var Player = mongoose.model('Player', require('../models/playerschema.js'))
@@ -30,5 +25,5 @@ module.exports = function(app, mongoose) {
   /*app.get('/task/create', function (req, res) {
     res.redirect();
   });*/
->>>>>>> routes
+
 };
