@@ -25,6 +25,7 @@ app.set("view engine", "ejs");
 
 require("./app/routes/navigation")(app,mongoose);
 require("./app/routes/gameroute")(app, mongoose);
+require("./app/routes/wordroute")(app, mongoose);
 
 
 app.listen(port);

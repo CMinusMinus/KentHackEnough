@@ -1,5 +1,5 @@
 var Game = require('../models/gameschema.js');
-var GameRoute = require('gameroute');
+var GameRoute = require('./gameroute');
 
 
 module.exports = function(app,mongoose) {
@@ -17,7 +17,8 @@ module.exports = function(app,mongoose) {
   app.post('/game/words',function(req,res){
     var query = Game.where({accessCode: req.body.accessCode})
     query.findOne(function(err,Game) {
-        if(err) return next(err);
+        if(err)
+            return next(err);
         if(Game) {
           Game.words.push(req.body.word);
         }
