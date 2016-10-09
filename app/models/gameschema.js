@@ -4,9 +4,9 @@ var mongoose = require('mongoose'),
 
 var GameSchema = new mongoose.Schema({
     accessCode: Number,
-    wordsPlayed: Array,
+    words: Array,
     players: Array,
-    turnIndex: Number,
+    turnIndex: Number
 });
 
-mongoose.model('Game', GameSchema);
+
