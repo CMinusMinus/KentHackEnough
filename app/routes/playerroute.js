@@ -4,7 +4,7 @@ module.exports = function(app, mongoose) {
     var Player = mongoose.model('Player', require('../models/playerschema.js'))
     app.post('/player/create', function (req, res) {
         var name1 = req.body.name;
-        console.console.log(req.body);
+        console.log(req.body);
 
         var newPlayer = new Player({
             name: name1,
