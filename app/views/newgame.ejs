@@ -8,7 +8,8 @@
     <body ng-app="word" ng-controller="newGameCtrl">
         <p>New Game</p>
         <label for="code">Name: </label>
-        <input ng-bind="name" id="name" type="text" />
+        <input ng-model="name" id="name" type="text" />
+        <p ng-bing="name"></p>
         <a href="/lobby" class="btn btn-default" ng-click="sendName()">Start New</a>
     </body>
     <script>
@@ -17,7 +18,13 @@
         app.controller("newGameCtrl", function($scope, $http){
             $scope.name;
             $scope.sendName = function(){
-                $http.post("/game/create", { name: $scope.name });
+                $http({
+                    method: "POST",
+                    url: "/game/create",
+                    header: {"Content-Type" : "application/json"},
+                    data: {"name": $scope.name}
+
+                });//.post("/game/create", { name: $scope.name });
             }
         });
     </script>
