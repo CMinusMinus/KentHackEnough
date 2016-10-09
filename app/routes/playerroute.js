@@ -11,7 +11,7 @@ module.exports = function(app, mongoose) {
             gamesWon: 0
         });
 
-        newPlayer.update(function(err) {
+        newPlayer.insert(function(err) {
         if (err) {
             console.log(err);
             return;
