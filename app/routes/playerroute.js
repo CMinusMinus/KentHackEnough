@@ -1,9 +1,10 @@
 
-module.exports = function(app) {
+module.exports = function(app, mongoose) {
+    var Player = mongoose.model('Player', require('../models/playerschema.js'))
     app.post('/player/create', function (req, res) {
         var name = req.body.name;
 
-        var newTask = new Task({
+        var newTask = new Player({
             name: name,
             canPlay: true,
             isTurn: false,

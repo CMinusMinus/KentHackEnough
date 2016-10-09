@@ -24,13 +24,9 @@ app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
 require("./app/routes/navigation")(app,mongoose);
-require("./app/routes/playerroute")(app);
+require("./app/routes/playerroute")(app, mongoose);
 require("./app/routes/gameroute")(app);
 
-app.post("/posting", function(req, res){
-   console.log(req);
-    res.redirect("/");
-});
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
