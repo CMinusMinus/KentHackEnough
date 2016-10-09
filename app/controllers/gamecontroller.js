@@ -1,4 +1,4 @@
-var Game = require('mongoose').model('GameSchema');
+var Game = require('mongoose').model('Game');
 
 exports.create = function(req, res, next) {
     var game = new Game(req.body);
