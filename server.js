@@ -27,6 +27,8 @@ require("./app/routes/navigation")(app,mongoose);
 require("./app/routes/gameroute")(app, mongoose);
 require("./app/routes/wordroute")(app, mongoose);
 
+//app.params("")
+
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
