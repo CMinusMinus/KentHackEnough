@@ -7,12 +7,11 @@ module.exports = function(app, mongoose) {
         console.log(req.body);
         console.log(name1);
 
-        var newPlayer = new Player({
-            name: name1,
-            canPlay: true,
-            isTurn: false,
-            gamesWon: 0
-        });
+        var newPlayer = new Player();
+        newPlayer.name = name1;
+        newPlayer.canPlay=true;
+        newPlayer.isTurn= false;
+        newPlayer.gamesWon= 0;
         console.log(newPlayer);
 
         newPlayer.save(function(err) {
@@ -22,6 +21,6 @@ module.exports = function(app, mongoose) {
         }
         else
             res.redirect("/lobby");
-        })
+        });
     });
 };
