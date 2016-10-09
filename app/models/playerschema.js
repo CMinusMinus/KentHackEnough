@@ -8,4 +8,4 @@ var PlayerSchema = new mongoose.Schema({
     gamesWon: Number
 });
 
-mongoose.model('Player', PlayerSchema);
+//mongoose.model('Player', PlayerSchema);
