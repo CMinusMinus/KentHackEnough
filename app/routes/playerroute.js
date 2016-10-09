@@ -8,7 +8,7 @@ module.exports = function(app, mongoose) {
         console.log(name1);
 
         var newPlayer = new Player({
-            name: name1,
+            name: 'name1',
             canPlay: true,
             isTurn: false,
             gamesWon: 0
