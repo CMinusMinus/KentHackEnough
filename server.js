@@ -24,7 +24,6 @@ app.set("views",path.join("./app/views"));
 app.set("view engine", "ejs");
 
 require("./app/routes/navigation")(app,mongoose);
-require("./app/routes/playerroute")(app, mongoose);
 require("./app/routes/gameroute")(app, mongoose);
 
 
