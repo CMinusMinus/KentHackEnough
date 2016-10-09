@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var players = require('../controllers/playercontroller');
 
 module.exports = function(app, mongoose) {
@@ -25,10 +24,4 @@ module.exports = function(app, mongoose) {
             res.redirect("/lobby");
         });
     });
-=======
-var users = require('../../app/controllers/playercontroller');
-
-module.exports = function(app) {
-    app.route('/users').post(user.create);
->>>>>>> Angular
 };
