@@ -56,10 +56,6 @@ module.exports = function(app, mongoose) {
                 if(err)
                     console.log(err);
         });
-
-
-
-  /*app.get('/task/create', function (req, res) {
-    res.redirect();*/
+        res.redirect("/lobby");
   });
 };

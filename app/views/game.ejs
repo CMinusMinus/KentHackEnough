@@ -2,6 +2,7 @@
     <head>
         <title>Home</title>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
@@ -9,15 +10,30 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>Game</p>
+                <input ng-model="word" type="text" />
+                <a href="#" class="btn btn-default" ng-click="submitWord()">Submit</a>
                 <a id="toHome"class="btn btn-default" href="/">Home</a>
             </div>
         </div>
         <script>
             var app = angular.module("word",[ngCookies]);
 
-            app.controller("GameCtrl", function($scope){
+            app.controller("GameCtrl", ["$scope","$http", "$cookies", function($scope, $http, $cookies){
                 $scope.players;
-            });
+                $scope.word;
+                $scope.accessCode = $cookies.get("accessCode");
+                $scope.submitWord = function(){
+                    $http({
+                        method: "POST",
+                        url: "/game/words",
+                        header: {"Content-Type": "application/json"},
+                        data: {
+                            "word": $scope.word,
+                            "accessCode": $scope.accessCode
+                        }
+                    });
+                };
+            }]);
         </script>
     </body>
 </html>

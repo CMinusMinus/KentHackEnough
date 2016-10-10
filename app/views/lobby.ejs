@@ -5,11 +5,11 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
-    <body>
+    <body ng-app = 'word' ng-controller="lobbyCtrl">
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>Lobby</p>
-                
+
 
                 <a class="btn btn-default" href="/game">
                     <span style="font-size:2em;">Start</span></a>
@@ -17,7 +17,17 @@
             </div>
         </div>
         <script>
+            var app = angular.module("word",[]);
 
+            app.controller("lobbyCtrl",function($scope, $http){
+                $http({
+                    method: "GET",
+                    url: "/game/data").then(function(response){
+                        $scope.response = response;
+                    });
+
+                });
+            });
         </script>
     </body>
 </html>
