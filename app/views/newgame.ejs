@@ -2,7 +2,7 @@
     <head>
         <title>Make New Game</title>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body ng-app="word" ng-controller="newGameCtrl">
@@ -13,9 +13,9 @@
         <a href="/lobby" class="btn btn-default" ng-click="sendName()">Start New</a>
     </body>
     <script>
-        var app = angular.module("word",[]);
+        var app = angular.module("word",["ngCookies"]);
 
-        app.controller("newGameCtrl", function($scope, $http){
+        app.controller("newGameCtrl", function($scope, $http, $cookies){
             $scope.name;
             $scope.sendName = function(){
                 $http({
@@ -23,8 +23,9 @@
                     url: "/game/create",
                     header: {"Content-Type" : "application/json"},
                     data: {"name": $scope.name}
-
                 });//.post("/game/create", { name: $scope.name });
+                $cookies.put("name",$scope.name);
+                
             }
         });
     </script>
