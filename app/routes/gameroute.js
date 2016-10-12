@@ -44,6 +44,8 @@ module.exports = function(app, mongoose) {
         });
     });*/
 
+
+
     app.post('/game/join',function(req,res){
         var newPlayer = {
           name: req.body.name,
@@ -52,10 +54,10 @@ module.exports = function(app, mongoose) {
           gamesWon: 0
         };
         console.log(req.body.accessCode);
-            var query = Game.update({accessCode: req.body.accessCode},{$push:{'players':newPlayer}},function(err){
-                if(err)
-                    console.log(err);
+        var query = Game.update({accessCode: req.body.accessCode},{$push:{'players':newPlayer}},function(err){
+            if(err)
+                console.log(err);
         });
-        res.redirect("/lobby");
+        res.redirect("/lobby/"+req.body.accessCode);
   });
 };

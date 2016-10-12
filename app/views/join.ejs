@@ -12,7 +12,7 @@
         <input ng-model="accessCode" id="code" value="code" type="text" />
         <label for="code">Your Name: </label>
         <input ng-model="name" id="name" value="name" type="text" />
-        <a class="btn btn-default" href="/lobby" ng-click="joinGame()">Join game</a>
+        <a class="btn btn-default" href="/lobby/{{accessCode}}" ng-click="joinGame()">Join game</a>
         <script>
             var app = angular.module("word",['ngCookies']);
 
