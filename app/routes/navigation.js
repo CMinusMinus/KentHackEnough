@@ -25,8 +25,19 @@ module.exports = function(app, mongoose) {
         });
     })
 
-    app.get("/game", function(req,res){
-        res.render('game');
+    app.get("/game/:accessCode", function(req,res){
+        Game.find({accessCode: req.params.accessCode}, function(err,results){
+            if(results.length == 0){
+                console.log("could not find game");
+                res.redirect('/');
+            }
+            else {
+                res.render('game',{
+                    accessCode: req.params.accessCode,
+                    game: results[0]
+                });
+            }
+        });
     });
 
     app.get("/game/new", function(req,res){
