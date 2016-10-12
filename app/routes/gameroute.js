@@ -1,12 +1,13 @@
 module.exports = function(app, mongoose) {
     //var Game = mongoose.model('Game', require('../models/gameschema'));
     var Game = require('../models/gameschema.js');
+
     app.post('/game/create', function (req, res) {
         console.log(req.body);
         var players = [];
         var words = [];
         var turnIndex = 0;
-        var accessCode = Math.floor(Math.random()*1000000);
+        var accessCode = req.body.accessCode;
         var newPlayer = {
             name: req.body.name,
             canPlay: true,

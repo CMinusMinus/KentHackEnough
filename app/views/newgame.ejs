@@ -10,22 +10,26 @@
         <label for="code">Name: </label>
         <input ng-model="name" id="name" type="text" />
         <p ng-bing="name"></p>
-        <a href="/lobby" class="btn btn-default" ng-click="sendName()">Start New</a>
+        <a href="/lobby/{{accessCode}}" class="btn btn-default" ng-click="sendName()">Start New</a>
     </body>
     <script>
         var app = angular.module("word",["ngCookies"]);
 
         app.controller("newGameCtrl", function($scope, $http, $cookies){
             $scope.name;
+            $scope.accessCode = Math.floor(Math.random() * 1000000);
             $scope.sendName = function(){
                 $http({
                     method: "POST",
                     url: "/game/create",
                     header: {"Content-Type" : "application/json"},
-                    data: {"name": $scope.name}
-                });//.post("/game/create", { name: $scope.name });
+                    data: {
+                        "name": $scope.name,
+                        "accessCode": $scope.accessCode
+                    }
+                });
                 $cookies.put("name",$scope.name);
-                
+
             }
         });
     </script>

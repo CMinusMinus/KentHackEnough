@@ -10,7 +10,11 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>Lobby</p>
-
+                <ul>
+                    <%for(var i = 0; i < players.length; i++){%>
+                        <li><%= players[i].name%></li>
+                    <%}%>
+                </ul>
 
                 <a class="btn btn-default" href="/game">
                     <span style="font-size:2em;">Start</span></a>
@@ -21,12 +25,7 @@
             var app = angular.module("word",['ngCookies']);
 
             app.controller("lobbyCtrl",function($scope, $http){
-                $http({
-                    method: "GET",
-                    url: "/game/data"
-                }).then(function(response){
-                        $scope.response = response;
-                });
+
             });
         </script>
     </body>
