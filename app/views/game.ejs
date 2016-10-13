@@ -28,8 +28,9 @@
                         url: "/game/words",
                         header: {"Content-Type": "application/json"},
                         data: {
-                            "word": $scope.word,
-                            "accessCode": $scope.accessCode
+                            "word": $scope.word.toLowerCase(),
+                            "accessCode": $scope.accessCode,
+                            "player": $cookies.get("name")
                         }
                     });
                 }

@@ -13,20 +13,13 @@ module.exports = function(app,mongoose) {
 
 
   // add word
-  // throwing shit at the wall here
   app.post('/game/words',function(req,res){
+    console.log(req.body.player);
     var query = Game.update({accessCode: req.body.accessCode},{$push:{'words':req.body.word}},function(err){
         if(err)
             console.log(err);
     });
-    /*quer.findOne(function(err,Game) {
-        if(err)
-            return next(err);
-        if(Game) {
-          Game.words.push(req.body.word);
-      }
-  });*/
-  res.redirect("/")
+  res.redirect("/");
   });
 
 
