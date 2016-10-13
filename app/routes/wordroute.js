@@ -19,7 +19,7 @@ module.exports = function(app,mongoose) {
         if(err)
             console.log(err);
     });
-  res.redirect("/");
+  res.redirect("/");//this should be replaced by a good redirect and a bad redirect
   });
 
 

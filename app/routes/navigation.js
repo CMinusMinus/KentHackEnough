@@ -23,7 +23,7 @@ module.exports = function(app, mongoose) {
                 });
             }
         });
-    })
+    });
 
     app.get("/game/:accessCode", function(req,res){
         Game.find({accessCode: req.params.accessCode}, function(err,results){
