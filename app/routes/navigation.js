@@ -40,7 +40,7 @@ module.exports = function(app, mongoose) {
         });
     });
 
-    app.get("/game/new", function(req,res){
+    app.get("/new", function(req,res){
         res.render('newgame');
     });
 }
