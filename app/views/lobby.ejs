@@ -8,22 +8,19 @@
         <script src="/public/application.js"></script>
     </head>
     <body ng-app = 'word' ng-controller="lobbyCtrl">
-        <div class="row">
+        <div class="row" ng-init='players = <%- JSON.stringify(players) %>'>
             <div class="col-md-12 text-center">
                 <p>Lobby</p>
-                <ul>
-                    <%for(var i = 0; i < players.length; i++){%>
-                        <li><%= players[i].name%></li>
-                    <%}%>
-                </ul>
+                <div>
+                    <% for(var i = 0; i < players.length; i++){ %>
+                        <p><%= players[i].name %></p>
+                    <% } %>
+                </div>
 
                 <a class="btn btn-default" href="/game/<%= accessCode %>">
                     <span style="font-size:2em;">Start</span></a>
                 <a class="btn btn-default" href="/"><span style="font-size:2em;">Back</span></a>
             </div>
         </div>
-        <script>
-
-        </script>
     </body>
 </html>

@@ -55,7 +55,7 @@ module.exports = function(app, mongoose) {
           gamesWon: 0
         };
         console.log(req.body.accessCode);
-        var query = Game.update({accessCode: req.body.accessCode},{$push:{'players':newPlayer}},function(err){
+        var query = Game.update({accessCode: req.body.accessCode},{$addToSet:{'players':newPlayer}},function(err){
             if(err)
                 console.log(err);
         });

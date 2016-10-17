@@ -2,7 +2,6 @@ var appName = 'word';
 var app = angular.module(appName, ["ngRoute", "ngCookies"]);
 
 app.controller("lobbyCtrl", function($scope, $cookies){
-    $scope.players;
     $scope.name = $cookies.get("name");
 });
 
@@ -27,6 +26,7 @@ app.controller("newGameCtrl", function($scope, $http, $cookies){
 app.controller("joinGameCtrl",["$scope","$http", "$cookies", function($scope, $http, $cookies){
     $scope.accessCode;
     $scope.name;
+    $scope.isJoinGame;
     $scope.joinGame = function() {
         $http({
             method: "POST",
@@ -37,14 +37,42 @@ app.controller("joinGameCtrl",["$scope","$http", "$cookies", function($scope, $h
                 "name": $scope.name
             }
         });
+        $scope.isJoinGame = true;
         $cookies.put("name", $scope.name);
     };
 }]);
+/* TODO
+app.directive('aDisabled', function() {
+    return {
+        compile: function(tElement, tAttrs, transclude) {
+            //Disable ngClick
+            tAttrs["ngClick"] = "!("+tAttrs["aDisabled"]+") && ("+tAttrs["ngClick"]+")";
+
+            //return a link function
+            return function (scope, iElement, iAttrs) {
+
+                //Toggle "disabled" to class when aDisabled becomes true
+                scope.$watch(iAttrs["aDisabled"], function(newValue) {
+                    if (newValue !== undefined) {
+                        iElement.toggleClass("disabled", newValue);
+                    }
+                });
+
+                //Disable href on click
+                iElement.on("click", function(e) {
+                    if (scope.$eval(iAttrs["aDisabled"])) {
+                        e.preventDefault();
+                    }
+                });
+            };
+        }
+    };
+}); */
 
 app.controller("gameCtrl", ["$scope","$http", "$cookies", function($scope, $http, $cookies){
     $scope.players;
     $scope.word;
-    $scope.accessCode = 985547;
+    $scope.accessCode; //TODO
     $scope.submitWord = function(){
         $http({
             method: "POST",
@@ -52,7 +80,7 @@ app.controller("gameCtrl", ["$scope","$http", "$cookies", function($scope, $http
             header: {"Content-Type": "application/json"},
             data: {
                 "word": $scope.word.toLowerCase(),
-                "accessCode": $scope.accessCode,
+                //"accessCode": $scope.accessCode,
                 "player": $cookies.get("name")
             }
         });
