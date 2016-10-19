@@ -8,7 +8,7 @@
         <script src="/public/application.js"></script>
     </head>
     <body ng-app="word" ng-controller="gameCtrl">
-        <div class="row">
+        <div class="row" ng-init="accessCode = <%- accessCode %>">
             <div class="col-md-12 text-center">
                 <p>Game</p>
                 <input ng-model="word" type="text" />

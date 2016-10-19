@@ -34,19 +34,6 @@ module.exports = function(app, mongoose) {
         });
     });
 
-    /*app.param("accessCode", function(req,res,next,accessCode){
-        Game.find({'accessCode': accessCode}, function(err,game){
-            if(err)
-                return next(err);
-            if(!game)
-                return;
-            req.game = game;
-            next();
-        });
-    });*/
-
-
-
     app.post('/game/join',function(req,res){
         var newPlayer = {
           name: req.body.name,

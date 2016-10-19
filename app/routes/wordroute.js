@@ -15,7 +15,7 @@ module.exports = function(app,mongoose) {
   // add word
   app.post('/game/words',function(req,res){
     console.log(req.body.player);
-    var query = Game.update({accessCode: req.body.accessCode},{$push:{'words':req.body.word}},function(err){
+    var query = Game.update({accessCode: req.body.accessCode},{$addToSet:{'words':req.body.word}},function(err){
         if(err)
             console.log(err);
     });

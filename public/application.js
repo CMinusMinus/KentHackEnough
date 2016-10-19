@@ -5,6 +5,18 @@ app.controller("lobbyCtrl", function($scope, $cookies){
     $scope.name = $cookies.get("name");
 });
 
+app.factory('postWord', function($http){
+    return $http({
+        method: "POST",
+        url: "/game/create",
+        header: {"Content-Type" : "application/json"},
+        data: {
+            "name": $scope.name,
+            "accessCode": $scope.accessCode
+        }
+    });
+});
+
 app.controller("newGameCtrl", function($scope, $http, $cookies){
     $scope.name;
     $scope.accessCode = Math.floor(Math.random() * 1000000);
@@ -23,7 +35,7 @@ app.controller("newGameCtrl", function($scope, $http, $cookies){
     }
 });
 
-app.controller("joinGameCtrl",["$scope","$http", "$cookies", function($scope, $http, $cookies){
+app.controller("joinGameCtrl", function($scope, $http, $cookies){
     $scope.accessCode;
     $scope.name;
     $scope.isJoinGame;
@@ -40,7 +52,7 @@ app.controller("joinGameCtrl",["$scope","$http", "$cookies", function($scope, $h
         $scope.isJoinGame = true;
         $cookies.put("name", $scope.name);
     };
-}]);
+});
 /* TODO
 app.directive('aDisabled', function() {
     return {
@@ -69,10 +81,10 @@ app.directive('aDisabled', function() {
     };
 }); */
 
-app.controller("gameCtrl", ["$scope","$http", "$cookies", function($scope, $http, $cookies){
+app.controller("gameCtrl", function($scope, $http, $cookies){
     $scope.players;
     $scope.word;
-    $scope.accessCode; //TODO
+
     $scope.submitWord = function(){
         $http({
             method: "POST",
@@ -80,16 +92,16 @@ app.controller("gameCtrl", ["$scope","$http", "$cookies", function($scope, $http
             header: {"Content-Type": "application/json"},
             data: {
                 "word": $scope.word.toLowerCase(),
-                //"accessCode": $scope.accessCode,
+                "accessCode": $scope.accessCode,
                 "player": $cookies.get("name")
             }
         });
     }
-}]);
+});
 
 
 
-app.config(['$routeProvider',
+/*app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/', {
@@ -108,8 +120,8 @@ app.config(['$routeProvider',
             redirectTo: '/'
         });
     }
-]);
+]);*/
 
-angular.element(document).ready(function() {
+/*angular.element(document).ready(function() {
     angular.bootstrap(document, [appName]);
-});
+});*/
